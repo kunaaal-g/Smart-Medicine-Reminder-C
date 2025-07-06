@@ -37,7 +37,7 @@ void addMedicine() {
     FILE *fp = fopen("medicine_data.txt", "a");
 
     if (fp == NULL) {
-        printf("❌ Error opening file!\n");
+        printf(" Error opening file!\n");
         return;
     }
 
