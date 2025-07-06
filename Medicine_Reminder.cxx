@@ -57,7 +57,7 @@ void addMedicine() {
 
     fwrite(&med, sizeof(struct Medicine), 1, fp);
     fclose(fp);
-    printf("✅ Medicine added successfully!\n");
+    printf("Medicine added successfully!\n");
 }
 
 void viewMedicines() {
@@ -65,11 +65,11 @@ void viewMedicines() {
     FILE *fp = fopen("medicine_data.txt", "r");
 
     if (fp == NULL) {
-        printf("⚠️ No medicine data found.\n");
+        printf(" No medicine data found.\n");
         return;
     }
 
-    printf("\n📋 Saved Medicines:\n");
+    printf("\n Saved Medicines:\n");
 
     while (fread(&med, sizeof(struct Medicine), 1, fp)) {
         printf("\nMedicine: %s\nDosage: %s\nTimes: ", med.name, med.dosage);
@@ -89,7 +89,7 @@ void checkReminder() {
     time_t now;
     struct tm *current;
     
-    printf("\n⏳ Reminder system started. It will check every 30 seconds.\nPress Ctrl+C to exit.\n");
+    printf("\n Reminder system started. It will check every 30 seconds.\nPress Ctrl+C to exit.\n");
 
     while (1) {
         now = time(NULL);
@@ -105,7 +105,7 @@ void checkReminder() {
             for (int i = 0; i < med.numTimes; i++) {
                 if (currHour == med.hour[i] && currMin == med.minute[i]) {
                     printf("\a");
-                    printf("\n🔔 Reminder: Take %s (%s) now at ", med.name, med.dosage);
+                    printf("\n Reminder: Take %s (%s) now at ", med.name, med.dosage);
                     displayTime(currHour, currMin);
                     printf("!\n");
                     
@@ -113,7 +113,7 @@ void checkReminder() {
                     printf("Snooze reminder for 5 mins? (y/n): ");
                     scanf(" %c", &snooze);
                     if (snooze == 'y' || snooze == 'Y') {
-                        printf("⏳ Snoozed for 5 minutes...\n");
+                        printf(" Snoozed for 5 minutes...\n");
                         SLEEP(300000); 
                     } else
                      {
@@ -130,11 +130,11 @@ void checkReminder() {
 int main() {
     int choice;
     while (1) {
-        printf("\n===== 💊 Smart Medicine Reminder Menu =====\n");
-        printf("1. ➕ Add Medicine\n");
-        printf("2. 📖 View Medicines\n");
-        printf("3. ⏰ Start Reminder System\n");
-        printf("4. ❌ Exit\n");
+        printf("\n===== Smart Medicine Reminder Menu =====\n");
+        printf("1.Add Medicine\n");
+        printf("2.View Medicines\n");
+        printf("3.Start Reminder System\n");
+        printf("4.Exit\n");
         printf("Choose an option: ");
         scanf("%d", &choice);
 
